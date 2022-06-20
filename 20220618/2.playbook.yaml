@@ -1,0 +1,25 @@
+- name: 2. Copy files recursively onto target hosts.
+  hosts: db_server
+  tasks:
+    - name: Copy files with copy module recursively.
+      ansible.builtin.copy:
+        src: /home/osboxes/GSLAnsibleAssignments
+        dest: /home
+        directory_mode: yes
+    # - name: Copy files with copy module recursively.
+    #   ansible.builtin.find:
+    #     paths:
+    #       - /home/osboxes/GSLAnsibleAssignments/20220618/group_vars
+    #     recurse: yes
+    #   register: find_output
+    #   delegate_to: 127.0.0.1
+    # - name: Copy one file at a time .
+    #   Copy still requires the directory to be created first, failing there rn.
+    #   ansible.builtin.copy: 
+    #     src: item.path
+    #     dest: "{{item.path | regex_replace('^/home/osboxes', '/home')}}"
+    #   loop: "{{find_output.files}}"
+    # - name: Debug task list files in dir.
+    #   debug: 
+    #     msg: DEST PATH => {{item.path | regex_replace('^/home/osboxes', '/home')}}
+    #   loop: "{{find_output.files}}"

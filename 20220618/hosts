@@ -1,0 +1,13 @@
+target1
+target2
+
+[db_server]
+target1
+
+[web_server]
+target2
+
+[db_and_web_server:children]
+db_server
+web_server
+

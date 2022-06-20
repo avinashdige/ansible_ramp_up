@@ -1,0 +1,23 @@
+# Write a playbook output to a file. 2nd & 3rd task write it to a local file. 4th task again writes it to a remote file on target node.
+- name: Write a playbook output to a file.
+  hosts: db_server
+  vars:
+    remote_output_file_path: /home/1.playbook_output2.txt
+    local_output_file_path: /home/osboxes/GSLAnsibleAssignments/20220618/1.playbook_output_with_local_actions.txt
+  tasks:
+    - name: Register all file names in root dir.
+      ansible.builtin.command: ls /
+      register: ls_output
+    - ansible.builtin.debug:
+        msg: "{{ls_output.stdout_lines}}"
+    - name: Write playbook output from register to a local file {{local_output_file_path}} with local_action directive
+      local_action: ansible.builtin.copy content="{{ls_output.stdout_lines}}" dest="{{local_output_file_path}}"
+    # - name: Write playbook output from register to a local file {{local_output_file_path}}
+    #   ansible.builtin.copy:
+    #     content: "{{ls_output.stdout_lines}}"
+    #     dest: "{{local_output_file_path}}"
+    #   delegate_to: 127.0.0.1
+    - name: Write playbook output from register to a file on target node {{remote_output_file_path}}
+      ansible.builtin.copy:
+        content: "{{ls_output.stdout_lines}}"
+        dest: "{{remote_output_file_path}}"

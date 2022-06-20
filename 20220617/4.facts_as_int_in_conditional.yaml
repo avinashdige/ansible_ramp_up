@@ -1,0 +1,11 @@
+- name: Use ansible facts as INT in conditionals
+  hosts: db_server
+  tasks:
+    - name: Simple debug task for 16
+      debug:
+        msg: "Inside simple debug task for 16: {{ansible_facts['lsb']['major_release']}}"
+      when: ansible_facts['lsb']['major_release']|int == 16
+    - name: Simple debug task NOT for 16
+      debug:
+        msg: "Inside simple debug task NOT for 16: {{ansible_facts['lsb']['major_release']}}"
+      when: ansible_facts['lsb']['major_release']|int != 16

@@ -1,0 +1,4 @@
+- name: Play to run my custom userdata module
+  hosts: db_server
+  tasks:
+    - userdata: name=Ronaldo age=37

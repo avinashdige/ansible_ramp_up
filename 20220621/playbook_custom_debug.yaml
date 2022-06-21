@@ -1,0 +1,7 @@
+- name: Play to run my custom debug module
+  hosts: db_server
+  tasks:
+    # - name: Testing my custom debug message
+    #   debug: msg="Original debug- This is my input message"
+    - custom_debug: 
+        msg: "Custom debug- This is my input message"

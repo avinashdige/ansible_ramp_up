@@ -1,0 +1,21 @@
+1. Variable precedence in ansible: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/include_vars_module.html#examples
+2. How to Include Variables in Ansible: https://www.toptechskills.com/ansible-tutorials-courses/ansible-include-import-variables-tutorial-examples/
+3. Read differnces between ansible include_vars vs vars_files: 
+4. Hoe to set the ansible facts: https://docs.ansible.com/ansible/2.9/modules/set_fact_module.html
+5. How can we delegate tasks in Ansible: https://www.interviewbit.com/ansible-interview-questions/#how-to-delegate-tasks-in-ansible
+6. Go through connection plugins (through SSH and REST API): https://docs.ansible.com/ansible/latest/plugins/connection.html
+7. How to develop ansible module: https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html
+
++ include_vars: 
+1. Loads YAML/JSON variables dynamically from a file or directory, recursively, during task runtime.
+2. If loading a directory, the files are sorted alphabetically before being loaded.
+3. To assign included variables to a different host than inventory_hostname, use delegate_to and set delegate_facts=yes.
+4. To assign included variables to a different host than inventory_hostname, use delegate_to and set delegate_facts=yes.
+
++ vars_files:
+
+
+Variable precedence in ansible, various ways to include variables in Ansible, include_vars vs vars_files,
+ansible_facts, set_facts module, delegate tasks in Ansible, connection plugins (SSH, winRM type), going through developing ansible custom modules.
+
+actual collections code, eos, cvp, avd collection. purpose of each of those collections. 

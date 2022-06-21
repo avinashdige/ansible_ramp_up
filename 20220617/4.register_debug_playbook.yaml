@@ -1,8 +1,0 @@
-- name: Register & debug directives demo
-  hosts: db_server
-  tasks:
-    - name: ps command output
-      command: ps -a
-      register: ps_command_output
-    - debug:
-        msg: "{{ ps_command_output }}"

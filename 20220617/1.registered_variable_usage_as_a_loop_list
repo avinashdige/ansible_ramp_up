@@ -1,9 +1,0 @@
-- name: Registered variable usage as a loop list
-  hosts: db_server
-  tasks:
-    - name: Retrieve the list of home directories
-      ansible.builtin.command: ls /
-      register: home_dirs
-
-    - name: Print home dirs with debug
-      debug: msg="Directory Names -> {{home_dirs}}"

@@ -1,0 +1,21 @@
+- name: Display .txt files in home folder
+  # vars_files:
+  #   - "./group_vars/renamed_db_server.yaml"
+  hosts: db_server
+  tasks:
+  # - name: ls command
+  #   command: 'ls /home'
+  #   register: ls_output
+  # - debug: msg="{{item}}"
+  #   when: item.find(".txt") != -1
+  #   loop: "{{ls_output.stdout_lines}}"
+  - name: Print files iin home dir with .txt extension using find module.
+    vars_files: ./group_vars/renamed_db_server.yaml
+    ansible.builtin.find:
+      path:
+        - /home
+      patterns:
+        - '*.txt'
+    register: find_output_txt
+  - debug: msg="{{item.path}}"
+    loop: "{{find_output_txt.files}}"

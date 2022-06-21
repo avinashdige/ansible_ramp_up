@@ -1,0 +1,11 @@
+- hosts: target1
+  tasks: 
+  - yum: 
+      name: "Installing httpd for redhat with yum"       
+      state: present 
+    when ansible_facts["distribution"] == "RedHat" 
+  - apt: 
+      name: "Installing apache2 for ubuntu with APT"       
+      state: present 
+    when ansible_facts["distribution"] == "Ubuntu"
+

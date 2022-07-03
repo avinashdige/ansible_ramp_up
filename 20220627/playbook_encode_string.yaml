@@ -1,0 +1,12 @@
+- name: Convert string to base64 with custom ansible module 
+  hosts: localhost
+  vars:
+    encoded_string: "declared variable"
+  tasks:
+    - name: Convert the string to base64
+      base64_mod:
+        name: "hello"
+        type: "encode"
+        new: true
+      register: encoded_string
+    - debug: msg="{{encoded_string}}"

@@ -1,0 +1,6 @@
+- name: Test OS check module.
+  hosts: localhost
+  tasks:
+    - name: Task for testing OS check module.
+      OSCheckModule:
+        os_name: Linux

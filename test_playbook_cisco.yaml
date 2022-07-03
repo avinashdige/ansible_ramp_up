@@ -1,0 +1,11 @@
+- name: Test NXOS module
+  connection: httpapi
+  hosts: nxdevice
+  tasks:
+    - name: Run NXOS module
+      cisco.nxos.nxos_interfaces:
+        config:
+        - name: Ethernet1
+          description: Configured by Ansible
+          enabled: true
+        state: merged

@@ -1,0 +1,10 @@
+- name: Convert string to base64 with custom ansible module 
+  hosts: localhost
+  tasks:
+    - name: Convert the encoded base64 string to normal string
+      base64_mod:
+        name: "aGVsbG8="
+        type: "decode"
+        new: true
+      register: decoded_string
+    - debug: msg="{{decoded_string}}"

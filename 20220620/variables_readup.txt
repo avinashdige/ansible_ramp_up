@@ -1,11 +1,3 @@
-1. Variable precedence in ansible: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/include_vars_module.html#examples
-2. How to Include Variables in Ansible: https://www.toptechskills.com/ansible-tutorials-courses/ansible-include-import-variables-tutorial-examples/
-3. Read differnces between ansible include_vars vs vars_files: 
-4. Hoe to set the ansible facts: https://docs.ansible.com/ansible/2.9/modules/set_fact_module.html
-5. How can we delegate tasks in Ansible: https://www.interviewbit.com/ansible-interview-questions/#how-to-delegate-tasks-in-ansible
-6. Go through connection plugins (through SSH and REST API): https://docs.ansible.com/ansible/latest/plugins/connection.html
-7. How to develop ansible module: https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html
-
 + include_vars: 
 1. Loads YAML/JSON variables dynamically from a file or directory, recursively, during task runtime.
 2. If loading a directory, the files are sorted alphabetically before being loaded.
@@ -14,8 +6,26 @@
 
 + vars_files:
 
-
 Variable precedence in ansible, various ways to include variables in Ansible, include_vars vs vars_files,
 ansible_facts, set_facts module, delegate tasks in Ansible, connection plugins (SSH, winRM type), going through developing ansible custom modules.
 
-actual collections code, eos, cvp, avd collection. purpose of each of those collections. 
++ EOS:
+Switch OS: Eliminating crashes & reloads that have plaued switch software for years.
+Patches can be dployed on a live swtich
+Extensibility: To support each customer's unique cloud computing requirements
+EOS: Unique multi-process stage sharing architecture
+key benefits of EOS: 
+1. Fault containment
+2. Self-healing
+3. in-service software upgrade
+4. extensibility
+
+Run standard linux kernel on top of hardware, by avoiding any extensive modifications to the kernel, we avoid destabilizing it.
+We rely on a mechanism which is as old as Unix itself which is address space.
+We divide switch processing into more than 40 separate address spaces. Each address space individually may fail but switch functionality overall is unaffected.
+Coordinate actiities of all these separate address spaces:
+State of the system is held in a central DB "SysDB".
+All the procesing involved for operating a switch is moved outside of SysDB & outside of kernel into separate user address spaces. This includes both the drivers that manage the hardware: switching asics, forwarding paths & ports as well as a software that included a command plane functionality, including a command line interpreter, SNMP, spanning tree & routing protocols. The key EOS innovation here is centralizing the state associated with those tasks in one place namely SysDB, while separating out the processing into separate address spaces. 
+This helps with 2 goals:
+1. Software Fault Containment: When a software fault occurs, the damage is limited to one agent.
+2. Stateful restart: It means when a failed agent is restarted, it picks up where it had left off. 

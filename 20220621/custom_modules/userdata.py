@@ -21,7 +21,7 @@ def main():
     )
     # Successful exit
     try:
-        file = open("/tmp/userdata.txt", "r")
+        file = open("/tmp/userdata.txt", "w")
         file.write(name+" , "+age+"\n")
         module.exit_json(changed=True, success=data, msg=data)
     except Exception as e:
